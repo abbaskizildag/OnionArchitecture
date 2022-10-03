@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ProductApp.Application.Features.Queries.GetProductById
 {
-    public class GetProductByIdHandler : IRequestHandler<GetProductByIdQuery, ServiceResponse<ProductViewDto>>
+    public class GetProductByIdHandler : IRequestHandler<GetProductByIdQuery, ServiceResponse<GetProductByIdViewModel>>
     {
         IProductRespository productRespository;
         private readonly IMapper mapper;
@@ -23,11 +23,11 @@ namespace ProductApp.Application.Features.Queries.GetProductById
         }
 
 
-        public async Task<ServiceResponse<ProductViewDto>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<GetProductByIdViewModel>> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
         {
             var product = await productRespository.GetByIdAsync(request.Id);
-            var dto = mapper.Map<ProductViewDto>(product);
-            return new ServiceResponse<ProductViewDto>(dto);
+            var dto = mapper.Map<GetProductByIdViewModel>(product);
+            return new ServiceResponse<GetProductByIdViewModel>(dto);
         }
     }
 }

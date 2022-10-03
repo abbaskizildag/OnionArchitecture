@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProductApp.Application.Features.Queries.GetProductById
 {
-    public class GetProductByIdQuery: IRequest<ServiceResponse<ProductViewDto>>
+    public class GetProductByIdQuery: IRequest<ServiceResponse<GetProductByIdViewModel>>
     {
         public Guid Id { get; set; }
 

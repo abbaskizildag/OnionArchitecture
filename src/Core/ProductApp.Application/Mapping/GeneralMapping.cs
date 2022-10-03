@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ProductApp.Application.Features.Commands.CreateProduct;
+using ProductApp.Application.Features.Queries.GetProductById;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace ProductApp.Application.Mapping
                 .ReverseMap();
 
             CreateMap<Domain.Entities.Product, CreateProductCommand>()
+                .ReverseMap();
+
+            CreateMap<Domain.Entities.Product, GetProductByIdViewModel>()
                 .ReverseMap();
         }
     }
