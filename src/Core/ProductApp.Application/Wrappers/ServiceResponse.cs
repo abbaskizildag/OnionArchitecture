@@ -11,7 +11,7 @@ namespace ProductApp.Application.Wrappers
         public T Value { get; set; }
         public ServiceResponse(T value)
         {
-            value = value;
+            this.Value = value;
         }
 
     }
